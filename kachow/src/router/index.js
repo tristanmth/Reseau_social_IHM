@@ -5,6 +5,7 @@ import FirstConnection from '@/views/FirstConnectionPage.vue';
 import Swipes from '@/views/SwipesPage.vue';
 import Messages from '@/views/MessagesPage.vue';
 
+
 const routes = [
   { path: '/', redirect: '/auth' },
   { path: '/auth', component: AuthPage },

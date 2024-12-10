@@ -52,7 +52,7 @@ export default {
   methods: {
     register() {
       // Pour la démo, on redirige directement sans validation
-      this.$router.push('/profile');
+      this.$router.push('/first-connection');
     },
     uploadProfilePic(event) {
       console.log(event.target.files[0]);
