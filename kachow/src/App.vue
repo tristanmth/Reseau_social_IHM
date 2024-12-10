@@ -1,43 +1,64 @@
 <template>
   <div id="app">
-    <h1>Site de Rencontre</h1>
-    <div v-for="user in users" :key="user.id" class="profile">
-      <h2>{{ user.name }}</h2>
-      <p>{{ user.description }}</p>
-      <button @click="sendMessage(user.id)">Envoyer un message</button>
-    </div>
+    <header class="app-header">
+      <h1>Bienvenue sur Katchow</h1>
+    </header>
+    <main class="app-main">
+      <router-view />
+    </main>
+    <footer class="app-footer">
+      <p>&copy; 2024 Katchow</p>
+    </footer>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      users: [
-        { id: 1, name: 'Alice', description: 'Aime les randonnées et les chats.' },
-        { id: 2, name: 'Bob', description: 'Passionné de musique et de voyages.' },
-        { id: 3, name: 'Charlie', description: 'Fan de cuisine et de cinéma.' }
-      ]
-    };
-  },
-  methods: {
-    sendMessage(userId) {
-      alert(`Message envoyé à l'utilisateur ${userId}`);
-    }
-  }
+  name: 'App',
 };
 </script>
 
 <style>
+/* Styles globaux de l'application */
 #app {
-  text-align: center;
-  margin: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.profile {
-  border: 1px solid #ccc;
+.app-header {
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.navbar {
+  margin-top: 10px;
+}
+
+.navbar a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.app-main {
+  flex: 1;
+  padding: 20px;
+}
+
+.app-footer {
+  background-color: #f1f1f1;
+  text-align: center;
   padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
+  border-top: 1px solid #ddd;
 }
 </style>

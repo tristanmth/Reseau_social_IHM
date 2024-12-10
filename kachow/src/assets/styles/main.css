@@ -1,0 +1,130 @@
+/* Styles globaux */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  h1, h2 {
+    color: #444;
+    text-align: center;
+  }
+  
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Conteneurs */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0;
+  }
+  
+  /* Formulaires */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, button, select, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input:focus, button:focus, select:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Navigation */
+  .navbar {
+    background-color: #3498db;
+    padding: 10px;
+    color: white;
+    text-align: center;
+  }
+  
+  .navbar a {
+    color: white;
+    margin: 0 10px;
+  }
+  
+  /* Listes */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Messages */
+  .message-container {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .message-container p {
+    margin: 0;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    form {
+      max-width: 100%;
+    }
+  
+    .card {
+      margin: 10px 5px;
+    }
+  }
+  
