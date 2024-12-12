@@ -17,6 +17,24 @@
             <p>{{ message.text }}</p>
           </div>
         </div>
+  <div class="messagerie">
+    <button class="back-button" @click="goBack">⬅</button>
+    <div class="header">
+      <h1>Messagerie ({{ activeTab === 'prive' ? 'privé' : 'groupes' }})</h1>
+    </div>
+    <div class="tabs">
+      <button :class="{ active: activeTab === 'prive' }" @click="setTab('prive')">Privé</button>
+      <button :class="{ active: activeTab === 'groupes' }" @click="setTab('groupes')">Groupes</button>
+    </div>
+    <div class="content">
+      <div v-if="activeTab === 'prive'" class="private-messages">
+        <div class="message" v-for="(message, index) in privateMessages" :key="index">
+          <div class="avatar"></div>
+          <div class="message-info">
+            <strong>{{ message.sender }}</strong>
+            <p>{{ message.text }}</p>
+          </div>
+        </div>
       </div>
       <div v-if="activeTab === 'groupes'" class="group-messages">
         <p>Vous n'êtes dans aucun groupes.</p>

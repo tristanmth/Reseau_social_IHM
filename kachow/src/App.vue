@@ -7,9 +7,6 @@
     <main class="app-main">
       <router-view />
     </main>
-    <footer class="app-footer">
-      <p>&copy; 2024 Katchow</p>
-    </footer>
   </div>
 </template>
 
@@ -17,7 +14,6 @@
 <script>
 export default {
   computed: {
-    // Vérifie si la route actuelle est dans la liste des routes spécifiées
     showLogoutButton() {
       const routesWithLogout = ['FirstConnection', 'Swipes', 'Profile', 'Messages'];
       return routesWithLogout.includes(this.$route.name); 
@@ -83,6 +79,7 @@ export default {
   background-color: #e74c3c;
   color: white;
   border: none;
+  width: auto;
   width: auto;
   border-radius: 5px;
   padding: 5px 10px;

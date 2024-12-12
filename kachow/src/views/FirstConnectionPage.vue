@@ -12,6 +12,7 @@
         <p class="user-name">{{ cars[currentCarIndex].distance }}</p>
       </div>
 
+
       <div class="actions">
         <button class="action-btn1" @click="swipeCar('dislike')">❌</button>
         <button class="action-btn2" @click="openInfos">📝</button>
@@ -88,10 +89,16 @@ export default {
   overflow: hidden;
   position: relative;
   margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
 }
 
 .car-image {
+.car-image {
   width: 100%;
+  height: 75%;
   height: 75%;
   object-fit: cover;
 }
@@ -107,6 +114,11 @@ export default {
 
 .actions {
   display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
   justify-content: space-around;
   position: absolute;
   bottom: 10px;
