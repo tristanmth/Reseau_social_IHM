@@ -96,7 +96,6 @@ export default {
 }
 
 .car-image {
-.car-image {
   width: 100%;
   height: 75%;
   height: 75%;
