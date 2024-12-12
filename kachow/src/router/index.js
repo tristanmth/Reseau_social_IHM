@@ -8,7 +8,7 @@ import Messages from '@/views/MessagesPage.vue';
 
 const routes = [
   { path: '/', redirect: '/auth' },
-  { path: '/auth', component: AuthPage },
+  { path: '/auth', name:"auth", component: AuthPage },
   { path: '/profile', component: ProfilePage },
   { path: '/first-connection', component: FirstConnection },
   { path: '/swipes', component: Swipes },

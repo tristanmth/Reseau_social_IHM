@@ -17,6 +17,12 @@
       Preferences,
       MyVehicles,
     },
+    props: {
+    isLoggedIn: {
+      type: Boolean, // L'état de connexion passé depuis App.vue
+      required: true,
+    },
+  },
   };
   </script>
   

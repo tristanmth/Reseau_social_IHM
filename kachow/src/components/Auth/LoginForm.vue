@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     login() {
-      // Pour la démo, on redirige directement sans validation
       this.$router.push('/profile');
     },
   },

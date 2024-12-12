@@ -2,7 +2,7 @@
   <div id="app">
     <header class="app-header">
       <h1>Bienvenue sur Katchow</h1>
-      <button class="logout-button" @click="redirectToLogin">Déconnexion</button>
+      <button v-if="showLogoutButton" class="logout-button" @click="redirectToLogin">Déconnexion</button>
     </header>
     <main class="app-main">
       <router-view />
@@ -17,10 +17,8 @@
 <script>
 export default {
   computed: {
-    // Vérifie si la route actuelle est dans la liste des routes spécifiées
     showLogoutButton() {
-      const routesWithLogout = ['FirstConnection', 'Swipes', 'Profile', 'Messages'];
-      return routesWithLogout.includes(this.$route.name); // Utilise le nom des routes
+      return this.$route.name !== 'auth';
     },
   },
   methods: {

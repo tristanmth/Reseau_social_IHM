@@ -51,7 +51,6 @@ export default {
   },
   methods: {
     register() {
-      // Pour la démo, on redirige directement sans validation
       this.$router.push('/first-connection');
     },
     uploadProfilePic(event) {
