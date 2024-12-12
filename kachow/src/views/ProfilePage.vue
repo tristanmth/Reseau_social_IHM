@@ -1,5 +1,7 @@
 <template>
     <div class="profile-page">
+      <button class="back-button" @click="goBack">⬅</button>
+      
       <h1>Mon Profil</h1>
       <div class="profile-sections">
         <Preferences />
@@ -17,10 +19,9 @@
       Preferences,
       MyVehicles,
     },
-    props: {
-    isLoggedIn: {
-      type: Boolean, // L'état de connexion passé depuis App.vue
-      required: true,
+    methods: {
+    goBack() {
+      this.$router.push("/swipes"); 
     },
   },
   };
@@ -35,5 +36,22 @@
     flex-wrap: wrap;
     gap: 20px;
   }
+
+  .back-button {
+  background: none;
+  border: none;
+  font-size: 60px; /* Taille de la flèche */
+  color: black; /* Couleur de la flèche */
+  cursor: pointer;
+  width: auto;
+  padding:0px;
+}
+
+.back-button:hover {
+  color: gray; /* Couleur au survol */
+}
+h1 {
+  margin-top:0px;
+}
   </style>
   

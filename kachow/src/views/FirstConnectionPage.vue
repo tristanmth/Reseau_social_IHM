@@ -5,29 +5,38 @@
         <p>
             Nous allons déterminer vos préférences à partir de quelques profiles.
         </p>
-      <!-- Section contenant l'image -->
-      <div class="car-image">
-        <img src="@/assets/bmw.png" alt="Voiture" />
-        <div class="car-info">
-          <p>BMW de Jean23</p>  
-          <p>A 15 km</p>
-        </div>
+        <div class="card">
+      <img class="car-image" src="../assets/bmw.png" alt="Car">
+      <div class="car-info">
+        <p class="car-model">BMW de Jean23</p>
+        <p class="user-name">A 15 km</p>
       </div>
-  
-      <!-- Section des boutons -->
+
       <div class="actions">
-        <button class="action-button">
-          <i class="icon-cross"></i>
-        </button>
-        <button class="action-button">
-          <i class="icon-doc"></i>
-        </button>
-        <button class="action-button">
-          <i class="icon-check"></i>
-        </button>
+        <button class="action-btn1" @click="swipeLeft">❌</button>
+        <button class="action-btn2" @click="openInfos">📝</button>
+        <button class="action-btn3" @click="swipeRight">✔️</button>
       </div>
     </div>
+    </div>
   </template>
+
+<script>
+export default {
+  methods: {
+    swipeLeft() {
+      console.log("Swiped Left");
+    },
+    swipeRight() {
+      // A modifier
+      this.$router.push('/profile');
+    },
+    openInfos() {
+      console.log("Open Infos");
+    },
+  },
+};
+</script>
 
 <style scoped>
 .first-connection {
@@ -41,71 +50,67 @@
 h1 {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+p {margin-bottom: 5px;}
+.card {
+  width: 25vw;
+  height: 65vh;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
 }
 
 .car-image {
-  position: relative;
-  width: 300px; 
-  height: auto  ; 
-  overflow: hidden;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.car-image img {
   width: 100%;
-  height: 100%;
+  height: 75%;
   object-fit: cover;
-  border-radius: 10px;
 }
-
 
 .car-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
   padding: 10px;
-  font-size: 14px;
-  text-align: left;
 }
 
-/* Style pour les boutons */
+.car-model {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.user-name {
+  color: #666;
+  font-size: 14px;
+}
+
 .actions {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
 }
 
-.action-button {
-  width: 60px;
-  height: 60px;
-  border: 2px solid black;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.action-btn1 {
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
 
-.action-button i {
-  font-size: 24px;
-  color: black;
+.action-btn2 {
+  font-size: 27px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.icon-cross::before {
-  content: "✖"; 
-}
-
-.icon-doc::before {
-  content: "📄"; 
-}
-
-.icon-check::before {
-  content: "✔"; 
+.action-btn3 {
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 </style>

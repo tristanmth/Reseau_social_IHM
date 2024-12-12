@@ -1,15 +1,12 @@
 <template>
   <div id="app">
     <header class="app-header">
-      <h1>Bienvenue sur Katchow</h1>
+      <h1 class="titre">Bienvenue sur Kachow</h1>
       <button v-if="showLogoutButton" class="logout-button" @click="redirectToLogin">Déconnexion</button>
     </header>
     <main class="app-main">
       <router-view />
     </main>
-    <footer class="app-footer">
-      <p>&copy; 2024 Katchow</p>
-    </footer>
   </div>
 </template>
 
@@ -81,6 +78,7 @@ export default {
   background-color: #e74c3c;
   color: white;
   border: none;
+  width: auto;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 14px;
@@ -89,5 +87,8 @@ export default {
 
 .logout-button:hover {
   background-color: #c0392b;
+}
+.titre {
+  color: white;
 }
 </style>
