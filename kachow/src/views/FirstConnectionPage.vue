@@ -1,111 +1,126 @@
 <template>
-    <div class="first-connection">
-      <!-- Titre de la page -->
-      <h1>Mes préférences</h1>
+  <div class="container">
+    <h1>Mes préférences</h1>
         <p>
             Nous allons déterminer vos préférences à partir de quelques profiles.
         </p>
-      <!-- Section contenant l'image -->
-      <div class="car-image">
-        <img src="@/assets/bmw.png" alt="Voiture" />
-        <div class="car-info">
-          <p>BMW de Jean23</p>  
-          <p>A 15 km</p>
-        </div>
+
+    <div class="card" v-if="currentCarIndex < cars.length">
+      <img class="car-image" :src="cars[currentCarIndex].image" :alt="cars[currentCarIndex].name" />
+      <div class="car-info">
+        <p class="car-model">{{ cars[currentCarIndex].name }}</p>
+        <p class="user-name">{{ cars[currentCarIndex].distance }}</p>
       </div>
-  
-      <!-- Section des boutons -->
+
       <div class="actions">
-        <button class="action-button">
-          <i class="icon-cross"></i>
-        </button>
-        <button class="action-button">
-          <i class="icon-doc"></i>
-        </button>
-        <button class="action-button">
-          <i class="icon-check"></i>
-        </button>
+        <button class="action-btn1" @click="swipeCar('dislike')">❌</button>
+        <button class="action-btn2" @click="openInfos">📝</button>
+        <button class="action-btn3" @click="swipeCar('like')">✔️</button>
       </div>
     </div>
-  </template>
+
+    <div v-else>
+      <p>Vous avez terminé de swiper toutes les voitures !</p>
+      <button class="tab-button" @click="goToProfile">Aller au Profil</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      cars: [
+        { name: 'BMW de Jean23', image: require('@/assets/bmw.png'), distance: 'À 15 km' },
+        { name: 'Taco de Micheline1925', image: require('@/assets/taco.png'), distance: 'À 7 km' },
+        { name: 'Camionnette de GentilHommeOffreBonbon', image: require('@/assets/candy.png'), distance: 'À 25 km' },
+        { name: 'Pickup de MamanCascouDu69', image: require('@/assets/pickup.png'), distance: 'À 10 km' },
+        { name: 'Tuk-tuk de Borris42510', image: require('@/assets/tuktuk.png'), distance: 'À 5 km' }
+      ],
+      currentCarIndex: 0,
+    };
+  },
+  methods: {
+    swipeCar(action) {
+      console.log(`Vous avez ${action === 'like' ? 'aimé' : 'ignoré'} ${this.cars[this.currentCarIndex].name}`);
+      this.currentCarIndex++;
+    },
+    goToProfile() {
+      this.$router.push('/profile');
+    },
+    goToMsg() {
+      this.$router.push('/messages');
+    },
+    openInfos() {
+      console.log("Infos pour " + this.cars[this.currentCarIndex].name);
+    },
+  },
+};
+</script>
+
 
 <style scoped>
-.first-connection {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  text-align: center;
 }
 
-h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.tab-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 40%;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
 }
 
 .car-image {
-  position: relative;
-  width: 300px; 
-  height: auto  ; 
-  overflow: hidden;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.car-image img {
   width: 100%;
-  height: 100%;
+  height: 75%;
   object-fit: cover;
-  border-radius: 10px;
 }
-
 
 .car-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
   padding: 10px;
-  font-size: 14px;
-  text-align: left;
 }
 
-/* Style pour les boutons */
+.car-model {
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .actions {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
 }
 
-.action-button {
-  width: 60px;
-  height: 60px;
-  border: 2px solid black;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.action-btn1,
+.action-btn2,
+.action-btn3 {
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
-
-.action-button i {
-  font-size: 24px;
-  color: black;
-}
-
-.icon-cross::before {
-  content: "✖"; 
-}
-
-.icon-doc::before {
-  content: "📄"; 
-}
-
-.icon-check::before {
-  content: "✔"; 
-}
 </style>
+

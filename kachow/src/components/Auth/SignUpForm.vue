@@ -12,7 +12,6 @@
       required 
     />
     <input 
-      type="email" 
       placeholder="Adresse e-mail" 
       v-model="email" 
       required 

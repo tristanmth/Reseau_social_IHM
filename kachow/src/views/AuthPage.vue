@@ -1,19 +1,19 @@
 <template>
   <div class="auth-page">
     <div v-if="!showForm" class="auth-buttons">
-      <button @click="showLoginForm">Connexion</button>
       <button @click="showSignUpForm">Inscription</button>
+      <button @click="showLoginForm">Connexion</button>
     </div>
 
     <!-- Formulaire de connexion -->
     <div v-else-if="formType === 'login'" class="auth-form">
-      <LoginForm />
+      <LoginForm @loginSuccess="onLoginSuccess" />
       <button @click="goBack">Retour</button>
     </div>
 
     <!-- Formulaire d'inscription -->
     <div v-else-if="formType === 'signup'" class="auth-form">
-      <SignUpForm />
+      <SignUpForm @signUpSuccess="onSignUpSuccess" />
       <button @click="goBack">Retour</button>
     </div>
   </div>
@@ -47,12 +47,20 @@ export default {
       this.showForm = false;
       this.formType = null;
     },
+    // // Redirection après connexion
+    // onLoginSuccess() {
+    //   this.$router.push('/first-connection'); 
+    // },
+    // // Redirection après inscription
+    // onSignUpSuccess() {
+    //   this.$router.push('/first-connection');  
+    // },
   },
 };
 </script>
 
 <style scoped>
-/* Assurez-vous que la page occupe toute la hauteur du viewport */
+/* Global Styles */
 html, body {
   height: 100%;
   margin: 0;
@@ -61,14 +69,8 @@ html, body {
 .auth-page {
   display: flex;
   flex-direction: column;
-  min-height: 100%; /* Assure que la page occupe toute la hauteur de l'écran */
-}
-
-.app-header {
-  background-color: #3498db;
-  color: white;
-  padding: 15px;
-  text-align: center;
+  min-height: 100%;
+  background-color: #f4f4f4; /* Légère couleur de fond */
 }
 
 .auth-buttons {
@@ -76,8 +78,8 @@ html, body {
   flex-direction: column;
   gap: 20px;
   text-align: center;
-  flex-grow: 1; /* Prend tout l'espace disponible */
-  justify-content: center; /* Centre les boutons verticalement */
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .auth-buttons button {
@@ -88,13 +90,15 @@ html, body {
   background-color: #3498db;
   color: white;
   cursor: pointer;
-  width: auto; /* Empêche les boutons de prendre toute la largeur */
-  max-width: 200px; /* Définit une largeur maximale */
-  margin: 0 auto; /* Centrer les boutons horizontalement */
+  width: auto;
+  max-width: 200px;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .auth-buttons button:hover {
   background-color: #2980b9;
+  transform: translateY(-3px); /* Légère animation sur hover */
 }
 
 .auth-form {
@@ -123,6 +127,6 @@ html, body {
   text-align: center;
   padding: 10px;
   border-top: 1px solid #ddd;
-  margin-top: auto; /* Assure que le footer reste en bas */
+  margin-top: auto;
 }
 </style>

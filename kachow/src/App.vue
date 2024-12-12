@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header class="app-header">
-      <h1>Bienvenue sur Katchow</h1>
+      <h1 class="titre">Bienvenue sur Katchow</h1>
       <button class="logout-button" @click="redirectToLogin">Déconnexion</button>
     </header>
     <main class="app-main">
@@ -20,12 +20,12 @@ export default {
     // Vérifie si la route actuelle est dans la liste des routes spécifiées
     showLogoutButton() {
       const routesWithLogout = ['FirstConnection', 'Swipes', 'Profile', 'Messages'];
-      return routesWithLogout.includes(this.$route.name); // Utilise le nom des routes
+      return routesWithLogout.includes(this.$route.name); 
     },
   },
   methods: {
     redirectToLogin() {
-      this.$router.push('/auth'); // Redirige vers la page Auth
+      this.$router.push('/auth'); 
     },
   },
 };
@@ -33,7 +33,7 @@ export default {
 
 
 <style>
-/* Styles globaux de l'application */
+
 #app {
   font-family: Arial, sans-serif;
   color: #333;
@@ -83,6 +83,7 @@ export default {
   background-color: #e74c3c;
   color: white;
   border: none;
+  width: auto;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 14px;
@@ -91,5 +92,9 @@ export default {
 
 .logout-button:hover {
   background-color: #c0392b;
+}
+
+.titre {
+  color: white;
 }
 </style>
