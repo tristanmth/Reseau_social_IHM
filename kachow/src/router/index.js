@@ -6,6 +6,7 @@ import ProfilePage from '@/views/ProfilePage.vue';
 import SwipesPage from '@/views/SwipesPage.vue';
 
 const routes = [
+  { path: '/', redirect: '/auth' },
   { path: '/auth', component: AuthPage },
   { path: '/first-connection', component: FirstConnectionPage },
   { path: '/messages', component: MessagePage },

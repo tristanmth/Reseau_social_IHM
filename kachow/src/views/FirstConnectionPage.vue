@@ -83,12 +83,10 @@ export default {
 }
 
 .card {
+  width: 25vw;
+  height: 65vh;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-  margin-top: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
@@ -97,7 +95,6 @@ export default {
 
 .car-image {
   width: 100%;
-  height: 75%;
   height: 75%;
   object-fit: cover;
 }
